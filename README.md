@@ -5,7 +5,8 @@ Customer: UMSL Faculty Proposal Writers to the National Science Foundation
 Boss: Dr. Keith Miller  
 Team Lead: Eva Roeder  
 Team Name: Red  
-Team Members: Brent Moran  
+Team Members: 
+~$\qquad$Brent Moran  
 ~              Chaitali Patel  
 ~              Eva Roeder  
 ~              Charles Wyatt  
