@@ -9,10 +9,10 @@ Boss:
 Team Lead:  
 ~Eva Roeder  
   
-Team Name: 
+Team Name:  
 ~Red  
   
-Team Members: 
+Team Members:  
 ~ Brent Moran  
 ~ Chaitali Patel  
 ~ Eva Roeder  
