@@ -6,8 +6,8 @@ Boss: Dr. Keith Miller
 Team Lead: Eva Roeder  
 Team Name: Red  
 Team Members: Brent Moran  
-              Chaitali Patel  
-              Eva Roeder  
-              Charles Wyatt  
+~              Chaitali Patel  
+~              Eva Roeder  
+~              Charles Wyatt  
 Project Name:  
 Project Description:  
