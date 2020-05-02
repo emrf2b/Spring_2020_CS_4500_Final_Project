@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/ptp_logo_background"
         android:layout_width="match_parent"
         android:layout_height="350dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,17 +17,17 @@
         android:contentDescription="front_half_background" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/plan_to_plate_logo"
         android:layout_width="333dp"
         android:layout_height="270dp"
         android:layout_gravity="top|fill_horizontal"
         android:adjustViewBounds="true"
+        android:contentDescription="front_page_logo"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:srcCompat="@drawable/Plan_to_Plate_Question_Mark1"
-        android:contentDescription="front_page_logo" />
+        app:layout_constraintTop_toTopOf="@+id/ptp_logo_background"
+        app:srcCompat="@drawable/plan_to_plate_question_mark1" />
 
     <TextView
         android:id="@+id/textView"
@@ -44,69 +44,71 @@
         app:layout_constraintVertical_bias="0.436" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="212dp"
-        android:layout_height="380dp"
+        android:id="@+id/blue_background"
+        android:layout_width="213dp"
+        android:layout_height="382dp"
         android:background="@color/ptpBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/ptp_logo_background"
+        app:layout_constraintEnd_toStartOf="@id/red_background"/>
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="197dp"
-        android:layout_height="380dp"
+        android:id="@+id/red_background"
+        android:layout_width="199dp"
+        android:layout_height="382dp"
         android:background="@color/ptpRed"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintStart_toEndOf="@+id/blue_background"
+        app:layout_constraintTop_toBottomOf="@+id/ptp_logo_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/my_recipes_btn"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:height="30dp"
         android:background="@drawable/btn_ronded"
         android:text="@string/my_recipes_btn"
-        app:layout_constraintBottom_toTopOf="@id/button2"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@id/my_profile_btn"
+        app:layout_constraintEnd_toEndOf="@+id/blue_background"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+        app:layout_constraintTop_toTopOf="@+id/blue_background"
+        />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/my_profile_btn"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="230dp"
         android:background="@drawable/btn_ronded"
         android:text="@string/my_profile_btn"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/blue_background"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@id/my_recipes_btn" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/plan_btn"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:background="@drawable/btn_ronded"
         android:text="@string/plan_btn"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
+        app:layout_constraintBottom_toTopOf="@+id/share_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/red_background"
+        app:layout_constraintTop_toTopOf="@+id/red_background" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/share_btn"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:background="@drawable/btn_ronded"
         android:text="@string/share_btn"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@id/button3" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/red_background"
+        app:layout_constraintTop_toBottomOf="@id/plan_btn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
