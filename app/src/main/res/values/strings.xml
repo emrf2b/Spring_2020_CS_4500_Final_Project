@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PlanToPlate</string>
+    <string name="welcome_message">Welcome, (name here)!</string>
+    <string name="my_recipes_btn">My Recipes</string>
+    <string name="my_profile_btn">My Profile</string>
+    <string name="plan_btn">Plan</string>
+    <string name="share_btn">Share</string>
 </resources>
