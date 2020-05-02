@@ -5,4 +5,6 @@
     <string name="my_profile_btn">My Profile</string>
     <string name="plan_btn">Plan</string>
     <string name="share_btn">Share</string>
+    <string name="front_half_background">Background to the logo on menu screen</string>
+    <string name="front_page_logo">Plan to plate menu logo image</string>
 </resources>

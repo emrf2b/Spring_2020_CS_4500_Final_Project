@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@color/ptpYellow"
-        android:contentDescription="front_half_background" />
+        android:contentDescription="@string/front_half_background" />
 
     <ImageView
         android:id="@+id/plan_to_plate_logo"
@@ -22,7 +22,7 @@
         android:layout_height="270dp"
         android:layout_gravity="top|fill_horizontal"
         android:adjustViewBounds="true"
-        android:contentDescription="front_page_logo"
+        android:contentDescription="@string/front_page_logo"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
