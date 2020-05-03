@@ -48,6 +48,7 @@
         android:layout_marginBottom="224dp"
         app:layout_constraintBottom_toBottomOf="@+id/plans_ui_background"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/white"
         android:entries="@array/meal_no"
         />
 
@@ -77,7 +78,8 @@
         android:layout_marginBottom="156dp"
         android:entries="@array/meal_type"
         app:layout_constraintBottom_toBottomOf="@+id/plans_ui_background"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/white"/>
 
     <Button
         android:id="@+id/home_btn"

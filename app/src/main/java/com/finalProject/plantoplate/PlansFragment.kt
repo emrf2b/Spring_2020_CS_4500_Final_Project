@@ -27,6 +27,13 @@ class PlansFragment : Fragment()
         Log.e("TAG", "Hit the frag")
         val view = inflater.inflate(R.layout.fragment_plans, container, false)
 
+        val numbers = resources.getStringArray(R.array.meal_no)
+        //Log.e("TAG", "${numbers}")
+        val types = resources.getStringArray(R.array.meal_type)
+        //Log.e("TAG", "${types}")
+        val noSpinner: Spinner? = getView()?.findViewById(R.id.meal_number_spinner)
+        val typeSpinner: Spinner? = getView()?.findViewById(R.id.meal_type_spinner)
+
         view.home_btn.setOnClickListener()
         {
             //activity?.finish()
@@ -34,10 +41,16 @@ class PlansFragment : Fragment()
             //finish()
         }
 
-        val numbers = resources.getStringArray(R.array.meal_no)
-        val types = resources.getStringArray(R.array.meal_type)
-        val noSpinner: Spinner? = getView()?.findViewById(R.id.meal_number_spinner)
-        val typeSpinner: Spinner? = getView()?.findViewById(R.id.meal_type_spinner)
+//        view.start_over.setOnClickListener()
+//        {
+//            typeSpinner?.setSelection(0)
+//            noSpinner?.setSelection(0)
+//        }
+
+        view.get_recipes.setOnClickListener()
+        {
+
+        }
 
         if (noSpinner != null) {
             val noAdapter = activity?.let {
@@ -73,11 +86,14 @@ class PlansFragment : Fragment()
                     parent: AdapterView<*>,
                     view: View, position: Int, id: Long
                 )
-                { Toast.makeText(activity,getString(R.string.selected_item) + " " +"" + types[position], Toast.LENGTH_SHORT).show() }
+                {
+                    Log.e("TAG", "types selected?")
+                    Toast.makeText(activity,getString(R.string.selected_item) + " " +"" + types[position], Toast.LENGTH_SHORT).show()
+                }
 
                 override fun onNothingSelected(parent: AdapterView<*>)
                 {
-                    // write code to perform some action
+                    //Empty
                 }
             }
         }
@@ -91,7 +107,10 @@ class PlansFragment : Fragment()
                     parent: AdapterView<*>,
                     view: View, position: Int, id: Long
                 )
-                { Toast.makeText(activity,getString(R.string.selected_item) + " " +"" + numbers[position], Toast.LENGTH_SHORT).show() }
+                {
+                    Log.e("TAG", "types selected?")
+                    Toast.makeText(activity,getString(R.string.selected_item) + " " +"" + numbers[position], Toast.LENGTH_SHORT).show()
+                }
 
                 override fun onNothingSelected(parent: AdapterView<*>)
                 {
@@ -99,6 +118,15 @@ class PlansFragment : Fragment()
                 }
             }
         }
+
+        view.start_over.setOnClickListener()
+        {
+            typeSpinner?.setSelection(0)
+            noSpinner?.setSelection(0)
+            Log.e("TAG", "The button works?")
+        }
+
+
         return view
     }
 

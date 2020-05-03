@@ -63,7 +63,6 @@ class MainActivity : AppCompatActivity() {
 
             welcome_message.text = ""
 
-            Toast.makeText(applicationContext, "This goes to the plans", Toast.LENGTH_SHORT ).show()
             var plansFragment = supportFragmentManager.findFragmentById(R.id.fragment) as? PlansFragment
             if (plansFragment == null)
             { plansFragment = PlansFragment() }
