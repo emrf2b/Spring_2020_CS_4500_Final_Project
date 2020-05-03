@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PlanToPlate.iml" filepath="$PROJECT_DIR$/PlanToPlate.iml" group="PlanToPlate" />
+      <module fileurl="file://$PROJECT_DIR$/Spring_2020_CS_4500_Final_Project-PlanToPlate.iml" filepath="$PROJECT_DIR$/Spring_2020_CS_4500_Final_Project-PlanToPlate.iml" group="PlanToPlate" />
+      <module fileurl="file://$PROJECT_DIR$/app/Spring_2020_CS_4500_Final_Project-app.iml" filepath="$PROJECT_DIR$/app/Spring_2020_CS_4500_Final_Project-app.iml" group="PlanToPlate/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="PlanToPlate/app" />
     </modules>
   </component>

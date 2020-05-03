@@ -41,11 +41,15 @@
 
     <Spinner
         android:id="@+id/meal_number_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="216dp"
+        android:layout_width="170dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="184dp"
+        android:layout_marginLeft="184dp"
+        android:layout_marginBottom="224dp"
         app:layout_constraintBottom_toBottomOf="@+id/plans_ui_background"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:entries="@array/meal_no"
+        />
 
     <TextView
         android:id="@+id/meal_type"
@@ -66,9 +70,12 @@
 
     <Spinner
         android:id="@+id/meal_type_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="148dp"
+        android:layout_width="170dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="184dp"
+        android:layout_marginLeft="184dp"
+        android:layout_marginBottom="156dp"
+        android:entries="@array/meal_type"
         app:layout_constraintBottom_toBottomOf="@+id/plans_ui_background"
         app:layout_constraintStart_toStartOf="parent" />
 
