@@ -46,7 +46,7 @@ class PlansFragment : Fragment()
                     R.id.meal_number_spinner,
                     android.R.layout.simple_spinner_item
                 )
-                    .also { adapter -> adapter.setDropDownViewResource(android.R.layout.spinner_custom_layout) }
+                    .also { adapter -> adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
             }
             noSpinner.adapter = noAdapter
         }
@@ -59,7 +59,7 @@ class PlansFragment : Fragment()
                     R.id.meal_type_spinner,
                     android.R.layout.simple_spinner_item
                 )
-                    .also { adapter -> adapter.setDropDownViewResource(android.R.layout.spinner_custom_layout) }
+                    .also { adapter -> adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
             }
             typeSpinner.adapter = typeAdapter
         }

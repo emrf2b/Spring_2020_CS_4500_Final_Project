@@ -19,7 +19,6 @@
         <item>3</item>
     </string-array>
     <string-array name="meal_type">
-        <item></item>
         <item>With Meat</item>
         <item>Without Meat</item>
     </string-array>
