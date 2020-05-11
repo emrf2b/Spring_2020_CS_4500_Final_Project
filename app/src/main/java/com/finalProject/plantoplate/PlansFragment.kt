@@ -20,12 +20,9 @@ import kotlinx.android.synthetic.main.fragment_plans.view.*
 class PlansFragment : Fragment()
 {
     private lateinit var appModel: AppViewModel
+    private lateinit var noSelected: String
+    private lateinit var typeSelected: String
 
-//    override fun onActivityCreated(savedInstanceState: Bundle?)
-//    {
-//        super.onActivityCreated(savedInstanceState)
-//        appModel = ViewModelProvider(this).get(AppViewModel::class.java)
-//    }
 
     override fun onAttach(context: Context)
     {
@@ -59,7 +56,7 @@ class PlansFragment : Fragment()
 
         view.get_recipes.setOnClickListener()
         {
-
+            appModel.setMealInfo(noSelected, typeSelected)
         }
 
         if (noSpinner != null)
@@ -87,6 +84,7 @@ class PlansFragment : Fragment()
                 )
                 {
                     Log.e("TAG", "number selected?")
+                    noSelected = numbers[position].toString()
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>)
@@ -107,6 +105,7 @@ class PlansFragment : Fragment()
                 )
                 {
                     Log.e("TAG", "types selected?")
+                    typeSelected = types[position].toString()
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>)
@@ -122,13 +121,6 @@ class PlansFragment : Fragment()
             noSpinner?.setSelection(0)
             Log.e("TAG", "The button works?")
         }
-
-        view.get_recipes.setOnClickListener()
-        {
-
-        }
-
-
         return view
     }
 }

@@ -6,13 +6,13 @@ import androidx.lifecycle.ViewModel
 
 class AppViewModel: ViewModel()
 {
-    var numberOfMeals: Int? = null
+    var numberOfMeals: String? = null
     private set
 
     var typeOfMeal: String? = null
     private set
 
-    fun setMealInfo(no: Int, type: String)
+    fun setMealInfo(no: String, type: String)
     {
         numberOfMeals = no
         typeOfMeal = type
