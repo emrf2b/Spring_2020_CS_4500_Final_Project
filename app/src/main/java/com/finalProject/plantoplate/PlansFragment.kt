@@ -21,10 +21,17 @@ class PlansFragment : Fragment()
 {
     private lateinit var appModel: AppViewModel
 
-    override fun onActivityCreated(savedInstanceState: Bundle?)
+//    override fun onActivityCreated(savedInstanceState: Bundle?)
+//    {
+//        super.onActivityCreated(savedInstanceState)
+//        appModel = ViewModelProvider(this).get(AppViewModel::class.java)
+//    }
+
+    override fun onAttach(context: Context)
     {
-        super.onActivityCreated(savedInstanceState)
-        appModel = ViewModelProvider(this).get(AppViewModel::class.java)
+        super.onAttach(context)
+        activity?.apply {
+            appModel = ViewModelProvider(this).get(AppViewModel::class.java) }
     }
 
 
