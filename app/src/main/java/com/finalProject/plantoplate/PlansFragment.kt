@@ -1,24 +1,33 @@
 package com.finalProject.plantoplate
 
-import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import android.widget.Toast
-import kotlinx.android.synthetic.main.fragment_plans.*
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_plans.view.*
 
 
 class PlansFragment : Fragment()
 {
-    @SuppressLint("ResourceType")
+    private lateinit var appModel: AppViewModel
+
+    override fun onActivityCreated(savedInstanceState: Bundle?)
+    {
+        super.onActivityCreated(savedInstanceState)
+        appModel = ViewModelProvider(this).get(AppViewModel::class.java)
+    }
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,8 +40,8 @@ class PlansFragment : Fragment()
         //Log.e("TAG", "${numbers}")
         val types = resources.getStringArray(R.array.meal_type)
         //Log.e("TAG", "${types}")
-        val noSpinner: Spinner? = getView()?.findViewById(R.id.meal_number_spinner)
-        val typeSpinner: Spinner? = getView()?.findViewById(R.id.meal_type_spinner)
+        val noSpinner = view.findViewById<Spinner>(R.id.meal_number_spinner)
+        val typeSpinner = view.findViewById<Spinner>(R.id.meal_type_spinner)
 
         view.home_btn.setOnClickListener()
         {
@@ -41,39 +50,22 @@ class PlansFragment : Fragment()
             //finish()
         }
 
-//        view.start_over.setOnClickListener()
-//        {
-//            typeSpinner?.setSelection(0)
-//            noSpinner?.setSelection(0)
-//        }
-
         view.get_recipes.setOnClickListener()
         {
 
         }
 
-        if (noSpinner != null) {
-            val noAdapter = activity?.let {
-                ArrayAdapter.createFromResource(
-                    it,
-                    R.id.meal_number_spinner,
-                    android.R.layout.simple_spinner_item
-                )
-                    .also { adapter -> adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
-            }
+        if (noSpinner != null)
+        {
+            val noAdapter =
+                activity?.let { ArrayAdapter(it, android.R.layout.simple_spinner_item, numbers) }
             noSpinner.adapter = noAdapter
         }
 
         if (typeSpinner != null)
         {
-            val typeAdapter = activity?.let {
-                ArrayAdapter.createFromResource(
-                    it,
-                    R.id.meal_type_spinner,
-                    android.R.layout.simple_spinner_item
-                )
-                    .also { adapter -> adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
-            }
+            val typeAdapter =
+                activity?.let { ArrayAdapter(it, android.R.layout.simple_spinner_item, types) }
             typeSpinner.adapter = typeAdapter
         }
 
@@ -87,8 +79,7 @@ class PlansFragment : Fragment()
                     view: View, position: Int, id: Long
                 )
                 {
-                    Log.e("TAG", "types selected?")
-                    Toast.makeText(activity,getString(R.string.selected_item) + " " +"" + types[position], Toast.LENGTH_SHORT).show()
+                    Log.e("TAG", "number selected?")
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>)
@@ -109,7 +100,6 @@ class PlansFragment : Fragment()
                 )
                 {
                     Log.e("TAG", "types selected?")
-                    Toast.makeText(activity,getString(R.string.selected_item) + " " +"" + numbers[position], Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>)
@@ -126,8 +116,12 @@ class PlansFragment : Fragment()
             Log.e("TAG", "The button works?")
         }
 
+        view.get_recipes.setOnClickListener()
+        {
+
+        }
+
 
         return view
     }
-
 }
