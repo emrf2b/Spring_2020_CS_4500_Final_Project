@@ -8,7 +8,8 @@ import androidx.lifecycle.ViewModel
 
 class AppViewModel: ViewModel()
 {
-    var meals = MutableLiveData<MealSelection>()
+//    var meals = MutableLiveData<MealSelection>()
+    var meal = MealSelection(0, "")
 
 //    var numberOfMeals: String? = null
 //    private set
@@ -20,9 +21,12 @@ class AppViewModel: ViewModel()
     {
 //        numberOfMeals = no
 //        typeOfMeal = type
-        meals.value?.number = no.toInt()
-        meals.value?.type = type
-        Log.e("TAG", "Selection: ${meals.value?.number} and ${meals.value?.type}")
+//        meals.value?.number = no.toInt()
+//        meals.value?.type = type
+        meal.type = type
+        meal.number = no.toInt()
+//        Log.e("TAG", "Selection: ${meals.value?.number} and ${meals.value?.type}")
+        Log.e("TAG", "Selection: ${meal.number} and ${meal.type}")
     }
 
 //    fun selected(meal: MealSelection)
