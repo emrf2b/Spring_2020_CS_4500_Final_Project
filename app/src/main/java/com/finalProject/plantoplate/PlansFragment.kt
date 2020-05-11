@@ -10,9 +10,8 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_plans.view.*
 
@@ -27,8 +26,7 @@ class PlansFragment : Fragment()
     override fun onAttach(context: Context)
     {
         super.onAttach(context)
-        activity?.apply {
-            appModel = ViewModelProvider(this).get(AppViewModel::class.java) }
+        appModel = ViewModelProvider(activity!!).get(AppViewModel::class.java)
     }
 
 
@@ -56,20 +54,31 @@ class PlansFragment : Fragment()
 
         view.get_recipes.setOnClickListener()
         {
-            appModel.setMealInfo(noSelected, typeSelected)
+            if (noSelected.isNotEmpty() && typeSelected.isNotEmpty())
+            {
+                appModel.setMealInfo(noSelected, typeSelected)
+            }
+            else
+            {
+                activity?.let { Toast.makeText(it, "You must select the number of meals and the type", Toast.LENGTH_SHORT).show() }
+            }
         }
 
         if (noSpinner != null)
         {
             val noAdapter =
-                activity?.let { ArrayAdapter(it, android.R.layout.simple_spinner_item, numbers) }
+                activity?.let {
+                    ArrayAdapter(it, android.R.layout.simple_spinner_item, numbers)
+                }
             noSpinner.adapter = noAdapter
         }
 
         if (typeSpinner != null)
         {
             val typeAdapter =
-                activity?.let { ArrayAdapter(it, android.R.layout.simple_spinner_item, types) }
+                activity?.let {
+                    ArrayAdapter(it, android.R.layout.simple_spinner_item, types)
+                }
             typeSpinner.adapter = typeAdapter
         }
 
@@ -117,6 +126,8 @@ class PlansFragment : Fragment()
 
         view.start_over.setOnClickListener()
         {
+            typeSelected  = ""
+            noSelected = ""
             typeSpinner?.setSelection(0)
             noSpinner?.setSelection(0)
         }
