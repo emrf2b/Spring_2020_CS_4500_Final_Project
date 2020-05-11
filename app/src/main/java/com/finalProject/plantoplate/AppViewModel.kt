@@ -1,6 +1,7 @@
 package com.finalProject.plantoplate
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 
@@ -16,6 +17,7 @@ class AppViewModel: ViewModel()
     {
         numberOfMeals = no
         typeOfMeal = type
+        Log.e("TAG", "Selection: $numberOfMeals and $typeOfMeal")
     }
 
 }

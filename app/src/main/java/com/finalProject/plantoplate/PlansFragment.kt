@@ -83,8 +83,8 @@ class PlansFragment : Fragment()
                     view: View, position: Int, id: Long
                 )
                 {
-                    Log.e("TAG", "number selected?")
                     noSelected = numbers[position].toString()
+                    Log.e("TAG", "Number selected $noSelected")
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>)
@@ -104,8 +104,8 @@ class PlansFragment : Fragment()
                     view: View, position: Int, id: Long
                 )
                 {
-                    Log.e("TAG", "types selected?")
                     typeSelected = types[position].toString()
+                    Log.e("TAG", "Type selected $typeSelected")
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>)
@@ -119,7 +119,6 @@ class PlansFragment : Fragment()
         {
             typeSpinner?.setSelection(0)
             noSpinner?.setSelection(0)
-            Log.e("TAG", "The button works?")
         }
         return view
     }
