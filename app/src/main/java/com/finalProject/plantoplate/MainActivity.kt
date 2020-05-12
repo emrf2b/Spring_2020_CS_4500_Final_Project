@@ -11,12 +11,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.math.sign
 
 
 class MainActivity : AppCompatActivity()
 {
 
     private lateinit var appModel: AppViewModel
+    private lateinit var profFrag: ProfileFragment
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -60,10 +62,10 @@ class MainActivity : AppCompatActivity()
         my_profile_btn.setOnClickListener()
         {
 
-//            plan_btn.visibility = View.GONE
-//            share_btn.visibility = View.GONE
-//            my_recipes_btn.visibility = View.GONE
-//            my_profile_btn.visibility = View.GONE
+            plan_btn.visibility = View.GONE
+            share_btn.visibility = View.GONE
+            my_recipes_btn.visibility = View.GONE
+            my_profile_btn.visibility = View.GONE
 
             welcome_message.text = ""
 
@@ -127,6 +129,40 @@ class MainActivity : AppCompatActivity()
 
                 editor.putString("Profile", json)
                     .apply()
+            }
+        }
+
+        profFrag = ProfileFragment()
+        profFrag.listener = object : ProfileFragment.ProfileListener
+        {
+            override fun launchNewProfileFrag()
+            {
+                var newProfDiag =
+                    supportFragmentManager.findFragmentById(R.id.fragment) as? NewProfileDialog
+                if (newProfDiag == null)
+                { newProfDiag = NewProfileDialog() }
+
+                if (!newProfDiag.isAdded)
+                {
+                    supportFragmentManager.beginTransaction()
+                        .add(R.id.fragment, newProfDiag)
+                        .commit()
+                }
+            }
+
+            override fun launchSignInFrag()
+            {
+                var signInDiag =
+                    supportFragmentManager.findFragmentById(R.id.fragment) as? SignInDialogFragment
+                if (signInDiag == null)
+                { signInDiag = SignInDialogFragment() }
+
+                if (!signInDiag.isAdded)
+                {
+                    supportFragmentManager.beginTransaction()
+                        .add(R.id.fragment, signInDiag)
+                        .commit()
+                }
             }
 
         }

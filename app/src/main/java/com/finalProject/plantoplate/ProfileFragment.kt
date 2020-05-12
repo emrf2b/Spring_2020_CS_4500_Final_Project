@@ -15,7 +15,8 @@ class ProfileFragment : Fragment()
 {
     interface ProfileListener
     {
-
+        fun launchNewProfileFrag()
+        fun launchSignInFrag()
     }
     var listener: ProfileListener? = null
 
@@ -42,12 +43,12 @@ class ProfileFragment : Fragment()
 
         view.new_profile.setOnClickListener()
         {
-            //TODO launch the create new profile fragment
+            listener?.launchNewProfileFrag()
         }
 
         view.sign_in.setOnClickListener()
         {
-            //TODO launch the sign in fragment
+            listener?.launchSignInFrag()
         }
 
         return view
