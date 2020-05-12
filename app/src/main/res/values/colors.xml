@@ -7,4 +7,10 @@
     <color name="ptpYellow">#E5E203</color>
     <color name="ptpBlue">#182868</color>
     <color name="white">#FFFFFF</color>
+    <color name="colorLowCarb">#663399</color>
+    <color name="colorBalanced">#4183D7</color>
+    <color name="colorMediumCarb">#D2527F</color>
+    <color name="colorLowSodium">#F4D03F</color>
+    <color name="colorLowFat">#F2784B</color>
+    <color name="colorVegetarian">#26A65B</color>
 </resources>
