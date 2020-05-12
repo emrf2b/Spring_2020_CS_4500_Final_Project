@@ -1,4 +1,4 @@
-package com.finalProject.plantoplate
+package com.finalProject.plantoplate.Recipes
 
 import android.content.Context
 import android.support.v4.content.ContextCompat
@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.finalProject.plantoplate.R
 import com.squareup.picasso.Picasso
 
 
@@ -52,7 +53,8 @@ class RecipeAdapter(private val context: Context,
             view = inflater.inflate(R.layout.list_item_recipe, parent, false)
 
             // 3
-            holder = ViewHolder()
+            holder =
+                ViewHolder()
             holder.thumbnailImageView = view.findViewById(R.id.recipe_list_thumbnail) as ImageView
             holder.titleTextView = view.findViewById(R.id.recipe_list_title) as TextView
             holder.subtitleTextView = view.findViewById(R.id.recipe_list_subtitle) as TextView

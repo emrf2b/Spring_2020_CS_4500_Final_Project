@@ -10,14 +10,16 @@ import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.finalProject.plantoplate.Plans.PlansFragment
+import com.finalProject.plantoplate.Profile.NewProfileDialog
+import com.finalProject.plantoplate.Profile.ProfileFragment
+import com.finalProject.plantoplate.Profile.SignInDialogFragment
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.math.sign
 
 
 class MainActivity : AppCompatActivity()
 {
-
     private lateinit var appModel: AppViewModel
     private var profFrag: ProfileFragment? = null
 
@@ -71,7 +73,9 @@ class MainActivity : AppCompatActivity()
 
             var profileFragment = supportFragmentManager.findFragmentById(R.id.fragment) as? ProfileFragment
             if (profileFragment == null)
-            { profileFragment = ProfileFragment() }
+            { profileFragment =
+                ProfileFragment()
+            }
 
             if (!profileFragment.isAdded)
             {
@@ -106,7 +110,8 @@ class MainActivity : AppCompatActivity()
 
             var plansFragment = supportFragmentManager.findFragmentById(R.id.fragment) as? PlansFragment
             if (plansFragment == null)
-            { plansFragment = PlansFragment() }
+            { plansFragment = PlansFragment()
+            }
 
             if (!plansFragment.isAdded)
             {
@@ -146,7 +151,8 @@ class MainActivity : AppCompatActivity()
                 { newProfFrag.remove(prev) }
 
                 newProfFrag.addToBackStack(null)
-                val diagFrag = NewProfileDialog()
+                val diagFrag =
+                    NewProfileDialog()
                 diagFrag.setTargetFragment(profFrag, Activity.RESULT_OK)
                 diagFrag.show(newProfFrag, "dialog")
             }
@@ -159,7 +165,8 @@ class MainActivity : AppCompatActivity()
                 { signInFrag.remove(prev) }
 
                 signInFrag.addToBackStack(null)
-                val diagFrag = SignInDialogFragment()
+                val diagFrag =
+                    SignInDialogFragment()
                 diagFrag.setTargetFragment(profFrag, Activity.RESULT_OK)
                 diagFrag.show(signInFrag, "dialog")
             }

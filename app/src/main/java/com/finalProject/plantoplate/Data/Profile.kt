@@ -1,3 +1,3 @@
-package com.finalProject.plantoplate
+package com.finalProject.plantoplate.Data
 
 data class Profile(var firstName: String, val lastName: String, var userName: String, var passWord: String){}

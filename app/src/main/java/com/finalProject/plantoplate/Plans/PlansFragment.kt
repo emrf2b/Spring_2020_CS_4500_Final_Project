@@ -1,4 +1,4 @@
-package com.finalProject.plantoplate
+package com.finalProject.plantoplate.Plans
 
 import android.content.Context
 import android.content.Intent
@@ -13,6 +13,9 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.finalProject.plantoplate.AppViewModel
+import com.finalProject.plantoplate.MainActivity
+import com.finalProject.plantoplate.R
 import kotlinx.android.synthetic.main.fragment_plans.view.*
 
 

@@ -1,4 +1,4 @@
-package com.finalProject.plantoplate
+package com.finalProject.plantoplate.Profile
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.finalProject.plantoplate.AppViewModel
+import com.finalProject.plantoplate.MainActivity
+import com.finalProject.plantoplate.R
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 

@@ -1,13 +1,10 @@
 package com.finalProject.plantoplate
 
-import android.content.Context
-import android.content.SharedPreferences
-import android.content.SharedPreferences.Editor
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.gson.Gson
-import android.os.Handler
+import com.finalProject.plantoplate.Data.MealSelection
+import com.finalProject.plantoplate.Data.Profile
 
 class AppViewModel: ViewModel()
 {

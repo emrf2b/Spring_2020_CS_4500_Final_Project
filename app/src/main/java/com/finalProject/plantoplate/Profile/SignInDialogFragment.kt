@@ -1,12 +1,12 @@
-package com.finalProject.plantoplate
+package com.finalProject.plantoplate.Profile
 
 import android.app.Activity
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
-import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
+import com.finalProject.plantoplate.R
 
 class SignInDialogFragment: DialogFragment()
 {
