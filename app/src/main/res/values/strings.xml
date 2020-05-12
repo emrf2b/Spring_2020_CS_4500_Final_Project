@@ -21,6 +21,26 @@
     <string name="sign_in">Sign In</string>
     <string name="new_profile">Create New Profile</string>
 
+    //PROFILE INFORMATION STRINGS
+    <string name="profile_info">Profile Info</string>
+    <string name="user_name">Username:</string>
+    <string name="first_name">First Name:</string>
+    <string name="last_name">Last Name:</string>
+    <string name="email">Email Address:</string>
+    <string name="pass_word">Password:</string>
+    <string name="confirm_password">Confirm Password:</string>
+    <string name="submit_btn">Submit</string>
+
+    //EDIT TEXT HINTS
+    <string name="enter_user_name">Enter User Name</string>
+    <string name="enter_first_name">Enter First Name</string>
+    <string name="enter_last_name">Enter Last Name</string>
+    <string name="enter_pass_word">Enter Password</string>
+    <string name="confirm_pass_word">Must Match Above</string>
+    <string name="enter_email">Enter Email Address</string>
+
+
+
     <string-array name="meal_no">
         <item></item>
         <item>1</item>

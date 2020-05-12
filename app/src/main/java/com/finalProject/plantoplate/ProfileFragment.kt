@@ -2,7 +2,6 @@ package com.finalProject.plantoplate
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,8 +31,8 @@ class ProfileFragment : Fragment()
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        Log.e("TAG", "Hit the frag")
+    ): View?
+    {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
         view.home_btn.setOnClickListener()
@@ -53,5 +52,4 @@ class ProfileFragment : Fragment()
 
         return view
     }
-
 }

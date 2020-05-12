@@ -1,5 +1,6 @@
 package com.finalProject.plantoplate
 
+import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity()
 {
 
     private lateinit var appModel: AppViewModel
-    private lateinit var profFrag: ProfileFragment
+    private var profFrag: ProfileFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -61,7 +62,6 @@ class MainActivity : AppCompatActivity()
 
         my_profile_btn.setOnClickListener()
         {
-
             plan_btn.visibility = View.GONE
             share_btn.visibility = View.GONE
             my_recipes_btn.visibility = View.GONE
@@ -73,14 +73,12 @@ class MainActivity : AppCompatActivity()
             if (profileFragment == null)
             { profileFragment = ProfileFragment() }
 
-            if (!profileFragment.isAdded) {
+            if (!profileFragment.isAdded)
+            {
                 supportFragmentManager.beginTransaction()
                     .add(R.id.fragment, profileFragment)
                     .commit()
             }
-
-
-            Toast.makeText(applicationContext, "This goes to the profile", Toast.LENGTH_SHORT ).show()
         }
 
         share_btn.setOnClickListener()
@@ -110,7 +108,8 @@ class MainActivity : AppCompatActivity()
             if (plansFragment == null)
             { plansFragment = PlansFragment() }
 
-            if (!plansFragment.isAdded) {
+            if (!plansFragment.isAdded)
+            {
                 supportFragmentManager.beginTransaction()
                     .add(R.id.fragment, plansFragment)
                     .commit()
@@ -132,41 +131,38 @@ class MainActivity : AppCompatActivity()
             }
         }
 
-        profFrag = ProfileFragment()
-        profFrag.listener = object : ProfileFragment.ProfileListener
+        var fragment = supportFragmentManager.findFragmentById(R.id.fragment) as? ProfileFragment
+        if (fragment == null)
+            fragment = ProfileFragment()
+
+        profFrag = fragment
+        profFrag?.listener = object : ProfileFragment.ProfileListener
         {
             override fun launchNewProfileFrag()
             {
-                var newProfDiag =
-                    supportFragmentManager.findFragmentById(R.id.fragment) as? NewProfileDialog
-                if (newProfDiag == null)
-                { newProfDiag = NewProfileDialog() }
+                val newProfFrag = supportFragmentManager.beginTransaction()
+                val prev = supportFragmentManager.findFragmentByTag("dialog")
+                if (prev != null)
+                { newProfFrag.remove(prev) }
 
-                if (!newProfDiag.isAdded)
-                {
-                    supportFragmentManager.beginTransaction()
-                        .add(R.id.fragment, newProfDiag)
-                        .commit()
-                }
+                newProfFrag.addToBackStack(null)
+                val diagFrag = NewProfileDialog()
+                diagFrag.setTargetFragment(profFrag, Activity.RESULT_OK)
+                diagFrag.show(newProfFrag, "dialog")
             }
 
             override fun launchSignInFrag()
             {
-                var signInDiag =
-                    supportFragmentManager.findFragmentById(R.id.fragment) as? SignInDialogFragment
-                if (signInDiag == null)
-                { signInDiag = SignInDialogFragment() }
+                val signInFrag = supportFragmentManager.beginTransaction()
+                val prev = supportFragmentManager.findFragmentByTag("dialog")
+                if (prev != null)
+                { signInFrag.remove(prev) }
 
-                if (!signInDiag.isAdded)
-                {
-                    supportFragmentManager.beginTransaction()
-                        .add(R.id.fragment, signInDiag)
-                        .commit()
-                }
+                signInFrag.addToBackStack(null)
+                val diagFrag = SignInDialogFragment()
+                diagFrag.setTargetFragment(profFrag, Activity.RESULT_OK)
+                diagFrag.show(signInFrag, "dialog")
             }
-
         }
     }
-
-
 }
