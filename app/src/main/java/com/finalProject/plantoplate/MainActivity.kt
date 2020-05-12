@@ -1,5 +1,6 @@
 package com.finalProject.plantoplate
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,17 +10,25 @@ import kotlinx.android.synthetic.main.fragment_plans.*
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.content.Intent
-
+import android.content.SharedPreferences
+import android.util.Log
+import androidx.lifecycle.ViewModelProvider
+import com.google.gson.Gson
 
 
 class MainActivity : AppCompatActivity()
 {
 
+    private lateinit var appModel: AppViewModel
+
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         lateinit var listView: ListView
+        appModel = ViewModelProvider(this).get(AppViewModel::class.java)
+        val sharedPref: SharedPreferences = getSharedPreferences(getString(R.string.ptp_profile_key), Context.MODE_PRIVATE )
 
         my_recipes_btn.setOnClickListener()
         {
@@ -61,6 +70,17 @@ class MainActivity : AppCompatActivity()
 
             welcome_message.text = ""
 
+            var profileFragment = supportFragmentManager.findFragmentById(R.id.fragment) as? ProfileFragment
+            if (profileFragment == null)
+            { profileFragment = ProfileFragment() }
+
+            if (!profileFragment.isAdded) {
+                supportFragmentManager.beginTransaction()
+                    .add(R.id.fragment, profileFragment)
+                    .commit()
+            }
+
+
             Toast.makeText(applicationContext, "This goes to the profile", Toast.LENGTH_SHORT ).show()
         }
 
@@ -97,5 +117,23 @@ class MainActivity : AppCompatActivity()
                     .commit()
             }
         }
+
+        appModel.listener = object: AppViewModel.Listener
+        {
+            override fun saveProfile()
+            {
+                Log.e("TAG", "Inside the save profile function")
+                val editor = sharedPref.edit()
+
+                val gson = Gson()
+                val json = gson.toJson(appModel.profiles)
+
+                editor.putString("Profile", json)
+                    .apply()
+            }
+
+        }
     }
+
+
 }

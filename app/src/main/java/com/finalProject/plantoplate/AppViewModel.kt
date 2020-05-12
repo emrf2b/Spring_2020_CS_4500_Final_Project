@@ -1,15 +1,26 @@
 package com.finalProject.plantoplate
 
-import android.app.Application
+import android.content.Context
+import android.content.SharedPreferences
+import android.content.SharedPreferences.Editor
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.gson.Gson
+import android.os.Handler
 
 class AppViewModel: ViewModel()
 {
+    var listener: Listener? = null
+    interface Listener
+    {
+        fun saveProfile()
+    }
+
+
 //    var meals = MutableLiveData<MealSelection>()
     var meal = MealSelection(0, "")
+    var profiles = MutableLiveData<Profile>()
 
 //    var numberOfMeals: String? = null
 //    private set
@@ -29,9 +40,26 @@ class AppViewModel: ViewModel()
         Log.e("TAG", "Selection: ${meal.number} and ${meal.type}")
     }
 
+    fun createProfile(profile: Profile)
+    {
+        profiles.value = profile
+    }
+
+    fun saveProfile()
+    {
+        Log.e("TAG", "Made it to saving the profile")
+        listener?.saveProfile()
+
+    }
+
 //    fun selected(meal: MealSelection)
 //    {
 //        meals.value = meal
 //    }
+
+    fun getMealInfo(): MealSelection
+    {
+        return meal
+    }
 
 }

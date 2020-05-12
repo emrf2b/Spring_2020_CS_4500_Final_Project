@@ -13,6 +13,14 @@
     <string name="start_over">Start Over</string>
     <string name="home">Home</string>
     <string name="selected_item">The item you selected was </string>
+    <string name="save">Save </string>
+    <string name="cancel">Cancel </string>
+    <string name="Name">Name</string>
+    <string name="Age">Age</string>
+    <string name="ptp_profile_key">PlanToPlate</string>
+    <string name="sign_in">Sign In</string>
+    <string name="new_profile">Create New Profile</string>
+
     <string-array name="meal_no">
         <item></item>
         <item>1</item>
@@ -25,3 +33,4 @@
         <item>Without Meat</item>
     </string-array>
 </resources>
+
