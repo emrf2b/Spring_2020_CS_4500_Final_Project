@@ -10,10 +10,14 @@ import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.finalProject.plantoplate.Data.Recipe
 import com.finalProject.plantoplate.Plans.PlansFragment
 import com.finalProject.plantoplate.Profile.NewProfileDialog
 import com.finalProject.plantoplate.Profile.ProfileFragment
 import com.finalProject.plantoplate.Profile.SignInDialogFragment
+import com.finalProject.plantoplate.Recipes.RecipeAdapter
+import com.finalProject.plantoplate.Recipes.RecipeDetailActivity
+import com.finalProject.plantoplate.Recipes.RecipeFragment
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -34,16 +38,25 @@ class MainActivity : AppCompatActivity()
 
         my_recipes_btn.setOnClickListener()
         {
-            ptp_logo_background.visibility = View.GONE
-            plan_to_plate_logo.visibility = View.GONE
-            welcome_message.visibility = View.GONE
-            blue_background.visibility = View.GONE
-            red_background.visibility = View.GONE
             plan_btn.visibility = View.GONE
             share_btn.visibility = View.GONE
             my_recipes_btn.visibility = View.GONE
             my_profile_btn.visibility = View.GONE
 
+            welcome_message.text = ""
+
+            var recipeFragment = supportFragmentManager.findFragmentById(R.id.fragment) as? RecipeFragment
+            if (recipeFragment == null)
+            { recipeFragment =
+                RecipeFragment()
+            }
+
+            if (!recipeFragment.isAdded)
+            {
+                supportFragmentManager.beginTransaction()
+                    .add(R.id.fragment, recipeFragment)
+                    .commit()
+            }
 //            listView = findViewById<ListView>(R.id.recipe_list_view)
 //
 //            val recipeList = Recipe.getRecipesFromFile("recipes.json", this)
@@ -58,8 +71,8 @@ class MainActivity : AppCompatActivity()
 //                val detailIntent = RecipeDetailActivity.newIntent(context, selectedRecipe)
 //
 //                startActivity(detailIntent)}
-//
-//
+
+
         }
 
         my_profile_btn.setOnClickListener()

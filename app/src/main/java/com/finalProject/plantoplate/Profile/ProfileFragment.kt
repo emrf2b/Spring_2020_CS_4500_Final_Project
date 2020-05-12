@@ -15,12 +15,12 @@ import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 class ProfileFragment : Fragment()
 {
-    interface ProfileListener
-    {
-        fun launchNewProfileFrag()
-        fun launchSignInFrag()
-    }
-    var listener: ProfileListener? = null
+//    interface ProfileListener
+//    {
+//        fun launchNewProfileFrag()
+//        fun launchSignInFrag()
+//    }
+//    var listener: ProfileListener? = null
 
     lateinit var appModel: AppViewModel
 
@@ -29,6 +29,13 @@ class ProfileFragment : Fragment()
         super.onActivityCreated(savedInstanceState)
         appModel = ViewModelProvider(this).get(AppViewModel::class.java)
     }
+
+    interface ProfileListener
+    {
+        fun launchNewProfileFrag()
+        fun launchSignInFrag()
+    }
+    var listener: ProfileListener? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
