@@ -45,32 +45,32 @@ class MainActivity : AppCompatActivity()
 
             welcome_message.text = ""
 
-            var recipeFragment = supportFragmentManager.findFragmentById(R.id.fragment) as? RecipeFragment
-            if (recipeFragment == null)
-            { recipeFragment =
-                RecipeFragment()
-            }
+//            var recipeFragment = supportFragmentManager.findFragmentById(R.id.fragment) as? RecipeFragment
+//            if (recipeFragment == null)
+//            { recipeFragment =
+//                RecipeFragment()
+//            }
+//
+//            if (!recipeFragment.isAdded)
+//            {
+//                supportFragmentManager.beginTransaction()
+//                    .add(R.id.fragment, recipeFragment)
+//                    .commit()
+//            }
+            listView = findViewById<ListView>(R.id.recipe_list_view)
 
-            if (!recipeFragment.isAdded)
-            {
-                supportFragmentManager.beginTransaction()
-                    .add(R.id.fragment, recipeFragment)
-                    .commit()
-            }
-//            listView = findViewById<ListView>(R.id.recipe_list_view)
-//
-//            val recipeList = Recipe.getRecipesFromFile("recipes.json", this)
-//
-//            val adapter = RecipeAdapter(this, recipeList)
-//            listView.adapter = adapter
-//
-//            val context = this
-//            listView.setOnItemClickListener { _, _, position, _ ->
-//                val selectedRecipe = recipeList[position]
-//
-//                val detailIntent = RecipeDetailActivity.newIntent(context, selectedRecipe)
-//
-//                startActivity(detailIntent)}
+            val recipeList = Recipe.getRecipesFromFile("recipes.json", this)
+
+            val adapter = RecipeAdapter(this, recipeList)
+            listView.adapter = adapter
+
+            val context = this
+            listView.setOnItemClickListener { _, _, position, _ ->
+                val selectedRecipe = recipeList[position]
+
+                val detailIntent = RecipeDetailActivity.newIntent(context, selectedRecipe)
+
+                startActivity(detailIntent)}
 
 
         }

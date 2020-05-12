@@ -14,8 +14,7 @@ import com.finalProject.plantoplate.R
 import com.squareup.picasso.Picasso
 
 
-class RecipeAdapter(private val context: Context,
-                    private val dataSource: ArrayList<Recipe>) : BaseAdapter()
+class RecipeAdapter(private val context: Context, private val dataSource: ArrayList<Recipe>) : BaseAdapter()
 {
 
     private val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater

@@ -7,11 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<!--    <FrameLayout-->
-<!--        android:id="@+id/fragment"-->
-<!--        android:name="com.finalProject.plantoplate.Plans.PlansFragment"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"/>-->
+    <FrameLayout
+        android:id="@+id/fragment"
+        android:name="com.finalProject.plantoplate.Plans.PlansFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
     <ImageView
@@ -115,11 +115,11 @@
         app:layout_constraintStart_toStartOf="@id/red_background"
         app:layout_constraintTop_toBottomOf="@id/plan_btn" />
 
-    <FrameLayout
-        android:id="@+id/fragment"
-        android:name="com.finalProject.plantoplate.PlansFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+<!--    <FrameLayout-->
+<!--        android:id="@+id/fragment"-->
+<!--        android:name="com.finalProject.plantoplate.PlansFragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
 
 
 
