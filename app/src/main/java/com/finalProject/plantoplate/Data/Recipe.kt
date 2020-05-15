@@ -1,16 +1,18 @@
 package com.finalProject.plantoplate.Data
 
+import android.app.Application
 import android.content.Context
+import com.finalProject.plantoplate.R
 import com.finalProject.plantoplate.Recipes.RecipeFragment
 import org.json.JSONException
 import org.json.JSONObject
 
 
-class Recipe( val title: String, val description: String, val imageUrl: String, val instructionUrl: String, val label: String, val CheckBox: Boolean, val Price: Double)
+class Recipe( val title: String, val description: String, val imageUrl: String, val instructionUrl: String, val label: String, val price: String)
 {
   companion object
   {
-    fun getRecipesFromFile(filename: String, context: Context): ArrayList<Recipe>
+    fun getRecipesFromFile(context: Application): ArrayList<Recipe>
     {
       val recipeList = ArrayList<Recipe>()
 
@@ -29,8 +31,7 @@ class Recipe( val title: String, val description: String, val imageUrl: String, 
               recipes.getJSONObject(it).getString("image"),
               recipes.getJSONObject(it).getString("url"),
               recipes.getJSONObject(it).getString("dietLabel"),
-              recipes.getJSONObject(it).getBoolean("CheckBox"),
-              recipes.getJSONObject(it).getDouble("Price")
+              recipes.getJSONObject(it).getString("price")
           )
         }
       }
@@ -40,13 +41,14 @@ class Recipe( val title: String, val description: String, val imageUrl: String, 
       return recipeList
     }
 
-    private fun loadJsonFromAsset(filename: String, context: Context): String?
+    private fun loadJsonFromAsset(filename: String, applicationContext: Application): String?
     {
       var json: String? = null
 
       try
       {
-        val inputStream = context.assets.open(filename)
+//        val inputStream = applicationContext.assets.open(filename)
+        val inputStream = applicationContext.resources.openRawResource(R.raw.recipes)
         val size = inputStream.available()
         val buffer = ByteArray(size)
         inputStream.read(buffer)

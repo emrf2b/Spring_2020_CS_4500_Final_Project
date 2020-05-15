@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.finalProject.plantoplate.AppViewModel
 import com.finalProject.plantoplate.MainActivity
 import com.finalProject.plantoplate.R
+import com.finalProject.plantoplate.Recipes.RecipeDetailActivity
 import kotlinx.android.synthetic.main.fragment_plans.view.*
 
 
@@ -60,6 +61,7 @@ class PlansFragment : Fragment()
             if (noSelected.isNotEmpty() && typeSelected.isNotEmpty())
             {
                 appModel.setMealInfo(noSelected, typeSelected)
+                activity?.startActivity(Intent(activity!!, RecipeDetailActivity::class.java))
             }
             else
             {
