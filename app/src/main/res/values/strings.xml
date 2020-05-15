@@ -52,5 +52,11 @@
         <item>With Meat</item>
         <item>Without Meat</item>
     </string-array>
+    <string-array name="sort_by">
+        <item></item>
+        <item>Cost</item>
+        <item>Number of Ingredients</item>
+        <item>Preparation Time</item>
+    </string-array>
 </resources>
 

@@ -1,11 +1,12 @@
 package com.finalProject.plantoplate.Data
 
 import android.content.Context
+import com.finalProject.plantoplate.Recipes.RecipeFragment
 import org.json.JSONException
 import org.json.JSONObject
 
 
-class Recipe( val title: String, val description: String, val imageUrl: String, val instructionUrl: String, val label: String)
+class Recipe( val title: String, val description: String, val imageUrl: String, val instructionUrl: String, val label: String, val CheckBox: Boolean, val Price: Double)
 {
   companion object
   {
@@ -27,7 +28,10 @@ class Recipe( val title: String, val description: String, val imageUrl: String, 
               recipes.getJSONObject(it).getString("description"),
               recipes.getJSONObject(it).getString("image"),
               recipes.getJSONObject(it).getString("url"),
-              recipes.getJSONObject(it).getString("dietLabel"))
+              recipes.getJSONObject(it).getString("dietLabel"),
+              recipes.getJSONObject(it).getBoolean("CheckBox"),
+              recipes.getJSONObject(it).getDouble("Price")
+          )
         }
       }
       catch (e: JSONException)

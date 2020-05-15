@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <TextView
+        android:layout_marginTop="330dp"
+        android:id="@+id/select_your_meals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Your Meals"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/montserrat_bold"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/sort_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sort By:"
+        android:layout_marginLeft="30dp"
+        android:textSize="17sp"
+        android:fontFamily="@font/montserrat"
+        android:layout_below="@id/select_your_meals" />
+
+    <Spinner
+        android:id="@+id/recipe_list_options"
+        android:layout_width="115dp"
+        android:layout_height="24dp"
+        android:background="@color/white"
+        android:layout_toRightOf="@id/sort_by"
+        android:layout_below="@+id/select_your_meals"
+        android:layout_toEndOf="@id/sort_by" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_recipe_view"
+        android:layout_width="match_parent"
+        android:layout_height="319dp"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"        >
+
+    </androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>
