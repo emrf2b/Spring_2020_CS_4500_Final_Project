@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:id="@+id/recipe_grid_layout">
 
     <CheckBox
@@ -13,9 +13,10 @@
 
     <ImageView
         android:id="@+id/recipe_img"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:src="@drawable/plan_to_plate_question_mark1"
+        android:scaleType="fitXY"
         android:contentDescription="TODO" />
 
     <TextView
@@ -24,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/recipe_img"
         android:layout_alignEnd="@id/recipe_img"
-        android:textSize="50sp"
+        android:textSize="15sp"
         android:text="$10.95"
         android:fontFamily="@font/montserrat_bold"
         android:textColor="@color/white"

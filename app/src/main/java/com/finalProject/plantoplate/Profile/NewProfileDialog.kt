@@ -24,11 +24,11 @@ class NewProfileDialog: DialogFragment()
 
 
                 val intent = Intent()
-                intent.putExtra("shoppingItemName", firstName?.text.toString())
-                intent.putExtra("shoppingItemPrice", lastName?.text.toString())
-                intent.putExtra("shoppingItemName", email?.text.toString())
-                intent.putExtra("shoppingItemPrice", userName?.text.toString())
-                intent.putExtra("shoppingItemName", passWord?.text.toString())
+                intent.putExtra("firstName", firstName?.text.toString())
+                intent.putExtra("lastName", lastName?.text.toString())
+                intent.putExtra("email", email?.text.toString())
+                intent.putExtra("userName", userName?.text.toString())
+                intent.putExtra("passWord", passWord?.text.toString())
 
                 targetFragment?.onActivityResult(targetRequestCode, Activity.RESULT_OK, intent)
             }

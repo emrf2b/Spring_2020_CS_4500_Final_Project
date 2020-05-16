@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:background="@color/ptpYellow">
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="55dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/ptp_img"
+        android:src="@drawable/plan_to_plate_question_mark1"/>
 
     <TextView
-        android:layout_marginTop="330dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/select_your_meals"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,6 +24,7 @@
         android:textColor="@color/white"
         android:fontFamily="@font/montserrat_bold"
         android:textAlignment="center"
+        android:layout_below="@id/ptp_img"
         android:gravity="center_horizontal" />
 
     <TextView
@@ -40,6 +52,8 @@
         android:layout_width="match_parent"
         android:layout_height="319dp"
         android:background="@color/white"
+        android:layout_below="@id/recipe_list_options"
+        android:layout_marginTop="10dp"
         android:layout_alignParentBottom="true"        >
 
     </androidx.recyclerview.widget.RecyclerView>

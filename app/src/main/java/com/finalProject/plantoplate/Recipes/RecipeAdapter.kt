@@ -120,14 +120,11 @@ class RecipeAdapter(private val context: Context, private val dataSource: ArrayL
     {
         val list = dataSource[position]
         thumbnailImageView = holder.thumbnailImageView
-
-//        val thumbnailImageView = holder.thumbnailImageView
         picasso.load(list.imageUrl)
             .placeholder(R.mipmap.ic_launcher_round)
             .into(thumbnailImageView)
 
         holder.priceTextView.text = list.price
-//        holder.thumbnailImageView = thumbnailImageView
 
     }
 }
