@@ -8,14 +8,13 @@
     <ImageView
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginTop="20dp"
         android:layout_marginLeft="55dp"
         android:layout_alignParentTop="true"
         android:id="@+id/ptp_img"
-        android:src="@drawable/plan_to_plate_question_mark1"/>
+        android:src="@drawable/plan_to_plate_question_mark1"
+        android:layout_marginStart="55dp" />
 
     <TextView
-        android:layout_marginTop="20dp"
         android:id="@+id/select_your_meals"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,7 +34,8 @@
         android:layout_marginLeft="30dp"
         android:textSize="17sp"
         android:fontFamily="@font/montserrat"
-        android:layout_below="@id/select_your_meals" />
+        android:layout_below="@id/select_your_meals"
+        android:layout_marginStart="30dp" />
 
     <Spinner
         android:id="@+id/recipe_list_options"

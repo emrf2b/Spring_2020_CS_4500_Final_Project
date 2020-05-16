@@ -11,7 +11,7 @@ class AppViewModel: ViewModel()
     var listener: Listener? = null
     interface Listener
     {
-        fun saveProfile()
+        fun saveProfile(profile: Profile)
     }
 
 
@@ -27,13 +27,8 @@ class AppViewModel: ViewModel()
 
     fun setMealInfo(no: String, type: String)
     {
-//        numberOfMeals = no
-//        typeOfMeal = type
-//        meals.value?.number = no.toInt()
-//        meals.value?.type = type
         meal.type = type
         meal.number = no.toInt()
-//        Log.e("TAG", "Selection: ${meals.value?.number} and ${meals.value?.type}")
         Log.e("TAG", "Selection: ${meal.number} and ${meal.type}")
     }
 
@@ -42,10 +37,16 @@ class AppViewModel: ViewModel()
         profiles.value = profile
     }
 
-    fun saveProfile()
+    fun createNewProfile(fN: String, lN: String, e: String, uN: String, pW: String)
+    {
+        val profile = Profile(fN, lN, e, uN, pW)
+        saveProfile(profile)
+    }
+
+    private fun saveProfile(profile: Profile)
     {
         Log.e("TAG", "Made it to saving the profile")
-        listener?.saveProfile()
+        listener?.saveProfile(profile)
 
     }
 
@@ -60,3 +61,4 @@ class AppViewModel: ViewModel()
     }
 
 }
+

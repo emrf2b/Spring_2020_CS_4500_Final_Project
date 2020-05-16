@@ -1,9 +1,7 @@
 package com.finalProject.plantoplate.Data
 
 import android.app.Application
-import android.content.Context
 import com.finalProject.plantoplate.R
-import com.finalProject.plantoplate.Recipes.RecipeFragment
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -47,7 +45,6 @@ class Recipe( val title: String, val description: String, val imageUrl: String, 
 
       try
       {
-//        val inputStream = applicationContext.assets.open(filename)
         val inputStream = applicationContext.resources.openRawResource(R.raw.recipes)
         val size = inputStream.available()
         val buffer = ByteArray(size)

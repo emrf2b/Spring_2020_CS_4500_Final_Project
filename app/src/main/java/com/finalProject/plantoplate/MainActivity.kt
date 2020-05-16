@@ -1,23 +1,16 @@
 package com.finalProject.plantoplate
 
-import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.finalProject.plantoplate.Data.Recipe
+import com.finalProject.plantoplate.Data.Profile
 import com.finalProject.plantoplate.Plans.PlansFragment
-import com.finalProject.plantoplate.Profile.NewProfileDialog
 import com.finalProject.plantoplate.Profile.ProfileFragment
-import com.finalProject.plantoplate.Profile.SignInDialogFragment
-import com.finalProject.plantoplate.Recipes.RecipeAdapter
-import com.finalProject.plantoplate.Recipes.RecipeDetailActivity
-import com.finalProject.plantoplate.Recipes.RecipeFragment
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -38,25 +31,25 @@ class MainActivity : AppCompatActivity()
 
         my_recipes_btn.setOnClickListener()
         {
-            plan_btn.visibility = View.GONE
-            share_btn.visibility = View.GONE
-            my_recipes_btn.visibility = View.GONE
-            my_profile_btn.visibility = View.GONE
-
-            welcome_message.text = ""
-
-            var recipeFragment = supportFragmentManager.findFragmentById(R.id.fragment) as? RecipeFragment
-            if (recipeFragment == null)
-            { recipeFragment =
-                RecipeFragment()
-            }
-
-            if (!recipeFragment.isAdded)
-            {
-                supportFragmentManager.beginTransaction()
-                    .add(R.id.fragment, recipeFragment)
-                    .commit()
-            }
+//            plan_btn.visibility = View.GONE
+//            share_btn.visibility = View.GONE
+//            my_recipes_btn.visibility = View.GONE
+//            my_profile_btn.visibility = View.GONE
+//
+//            welcome_message.text = ""
+//
+//            var recipeFragment = supportFragmentManager.findFragmentById(R.id.fragment) as? RecipeFragment
+//            if (recipeFragment == null)
+//            { recipeFragment =
+//                RecipeFragment()
+//            }
+//
+//            if (!recipeFragment.isAdded)
+//            {
+//                supportFragmentManager.beginTransaction()
+//                    .add(R.id.fragment, recipeFragment)
+//                    .commit()
+//            }
 //            listView = findViewById<ListView>(R.id.recipe_list_view)
 //
 //            val recipeList = Recipe.getRecipesFromFile("recipes.json", this)
@@ -72,7 +65,7 @@ class MainActivity : AppCompatActivity()
 //
 //                startActivity(detailIntent)}
 
-
+            Toast.makeText(this, "You're saved recipes would be here!", Toast.LENGTH_SHORT).show()
         }
 
         my_profile_btn.setOnClickListener()
@@ -136,7 +129,7 @@ class MainActivity : AppCompatActivity()
 
         appModel.listener = object: AppViewModel.Listener
         {
-            override fun saveProfile()
+            override fun saveProfile(profile: Profile)
             {
                 Log.e("TAG", "Inside the save profile function")
                 val editor = sharedPref.edit()
@@ -158,30 +151,30 @@ class MainActivity : AppCompatActivity()
         {
             override fun launchNewProfileFrag()
             {
-                val newProfFrag = supportFragmentManager.beginTransaction()
-                val prev = supportFragmentManager.findFragmentByTag("dialog")
-                if (prev != null)
-                { newProfFrag.remove(prev) }
-
-                newProfFrag.addToBackStack(null)
-                val diagFrag =
-                    NewProfileDialog()
-                diagFrag.setTargetFragment(profFrag, Activity.RESULT_OK)
-                diagFrag.show(newProfFrag, "dialog")
+//                val newProfFrag = supportFragmentManager.beginTransaction()
+//                val prev = supportFragmentManager.findFragmentByTag("dialog")
+//                if (prev != null)
+//                { newProfFrag.remove(prev) }
+//
+//                newProfFrag.addToBackStack(null)
+//                val diagFrag =
+//                    NewProfileDialog()
+//                diagFrag.setTargetFragment(profFrag, Activity.RESULT_OK)
+//                diagFrag.show(newProfFrag, "dialog")
             }
 
             override fun launchSignInFrag()
             {
-                val signInFrag = supportFragmentManager.beginTransaction()
-                val prev = supportFragmentManager.findFragmentByTag("dialog")
-                if (prev != null)
-                { signInFrag.remove(prev) }
-
-                signInFrag.addToBackStack(null)
-                val diagFrag =
-                    SignInDialogFragment()
-                diagFrag.setTargetFragment(profFrag, Activity.RESULT_OK)
-                diagFrag.show(signInFrag, "dialog")
+//                val signInFrag = supportFragmentManager.beginTransaction()
+//                val prev = supportFragmentManager.findFragmentByTag("dialog")
+//                if (prev != null)
+//                { signInFrag.remove(prev) }
+//
+//                signInFrag.addToBackStack(null)
+//                val diagFrag =
+//                    SignInDialogFragment()
+//                diagFrag.setTargetFragment(profFrag, Activity.RESULT_OK)
+//                diagFrag.show(signInFrag, "dialog")
             }
         }
     }

@@ -1,10 +1,12 @@
 package com.finalProject.plantoplate.Profile
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.finalProject.plantoplate.AppViewModel
@@ -47,19 +49,60 @@ class ProfileFragment : Fragment()
 
         view.home_btn.setOnClickListener()
         {
-            activity?.startActivity(Intent(activity!!, MainActivity::class.java))
+            activity?.startActivity(Intent(requireActivity(), MainActivity::class.java))
         }
 
         view.new_profile.setOnClickListener()
         {
-            listener?.launchNewProfileFrag()
+            val newProfFrag = parentFragmentManager.beginTransaction()
+            val prev = parentFragmentManager.findFragmentByTag("dialog")
+            if (prev != null)
+            { newProfFrag.remove(prev) }
+
+            newProfFrag.addToBackStack(null)
+
+            val diagFrag = NewProfileDialog()
+            diagFrag.setTargetFragment(this, Activity.RESULT_OK)
+            diagFrag.show(newProfFrag, "dialog")
         }
 
         view.sign_in.setOnClickListener()
         {
-            listener?.launchSignInFrag()
+            val signInFrag = parentFragmentManager.beginTransaction()
+            val prev = parentFragmentManager.findFragmentByTag("dialog")
+            if (prev != null)
+            { signInFrag.remove(prev) }
+
+            signInFrag.addToBackStack(null)
+            val diagFrag = SignInDialogFragment()
+
+            diagFrag.setTargetFragment(this, Activity.RESULT_OK)
+            diagFrag.show(signInFrag, "dialog")
         }
 
         return view
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?)
+    {
+        super.onActivityResult(requestCode, resultCode, data)
+        val newProf = data?.getStringExtra("newProf").toString()
+        if (newProf === "1")
+        {
+            val firstName = data?.getStringExtra("firstName").toString()
+            val lastName = data?.getStringExtra("lastName").toString()
+            val email = data?.getStringExtra("email").toString()
+            val userName = data?.getStringExtra("userName").toString()
+            val passWord = data?.getStringExtra("passWord").toString()
+            appModel.createNewProfile(firstName, lastName, email, userName, passWord)
+        }
+        val signIn = data?.getStringExtra("signIn").toString()
+        if (signIn === "1")
+        {
+            val uName = data?.getStringExtra("uName").toString()
+            val lastName = data?.getStringExtra("pWord").toString()
+
+            activity?.let {Toast.makeText(it, "You signed in!", Toast.LENGTH_SHORT ).show()}
+        }
     }
 }

@@ -46,6 +46,9 @@ class RecipeDetailActivity : AppCompatActivity()
         setContentView(R.layout.recipe_recycler__view)
 //        val view = inflater.inflate(R.layout.recipe_grid_view, container, false)
 
+        val noSelected = intent.getStringExtra("noSelected")
+        val typeSelected = intent.getStringExtra("typeSelected")
+
         val sortBySpinner = findViewById<Spinner>(R.id.recipe_list_options)
         val sortByOptions = resources.getStringArray(R.array.sort_by)
 
@@ -76,7 +79,7 @@ class RecipeDetailActivity : AppCompatActivity()
                 {
                     optionSelected = sortByOptions[position]
                     Log.e("TAG", "Number selected $optionSelected")
-                    Toast.makeText(this@RecipeDetailActivity, "You selected $optionSelected", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@RecipeDetailActivity, "You selected $noSelected and $typeSelected", Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>)

@@ -1,5 +1,6 @@
 package com.finalProject.plantoplate.Plans
 
+import android.content.ClipData.newIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -30,7 +31,7 @@ class PlansFragment : Fragment()
     override fun onAttach(context: Context)
     {
         super.onAttach(context)
-        appModel = ViewModelProvider(activity!!).get(AppViewModel::class.java)
+        appModel = ViewModelProvider(requireActivity()).get(AppViewModel::class.java)
     }
 
 
@@ -52,7 +53,7 @@ class PlansFragment : Fragment()
         view.home_btn.setOnClickListener()
         {
             //activity?.finish()
-            activity?.startActivity(Intent(activity!!, MainActivity::class.java))
+            activity?.startActivity(Intent(requireActivity(), MainActivity::class.java))
             //finish()
         }
 
@@ -61,7 +62,10 @@ class PlansFragment : Fragment()
             if (noSelected.isNotEmpty() && typeSelected.isNotEmpty())
             {
                 appModel.setMealInfo(noSelected, typeSelected)
-                activity?.startActivity(Intent(activity!!, RecipeDetailActivity::class.java))
+                val intent = Intent(activity, RecipeDetailActivity::class.java)
+                intent.putExtra("noSelected", noSelected)
+                intent.putExtra("typeSelected", typeSelected)
+                activity?.startActivity(intent)
             }
             else
             {
