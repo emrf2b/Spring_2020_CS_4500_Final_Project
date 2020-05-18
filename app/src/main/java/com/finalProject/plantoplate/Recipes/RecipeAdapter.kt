@@ -22,7 +22,6 @@ class RecipeAdapter(private val context: Context, private val dataSource: ArrayL
     fun getItem(position: Int): Any = dataSource[position]
     override fun getItemId(position: Int): Long = position.toLong()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder
-
     {
         val inflater = LayoutInflater.from(context)
         val view = inflater.inflate(R.layout.recipe_grid_view, parent, false)

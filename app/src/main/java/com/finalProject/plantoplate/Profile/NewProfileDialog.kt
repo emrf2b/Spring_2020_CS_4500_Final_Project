@@ -32,7 +32,6 @@ class NewProfileDialog: DialogFragment()
                 intent.putExtra("passWord", passWord?.text.toString())
 
                 intent.putExtra("newProf", 1)
-                intent.putExtra("signIn", 1)
 
                 targetFragment?.onActivityResult(targetRequestCode, Activity.RESULT_OK, intent)
             }
