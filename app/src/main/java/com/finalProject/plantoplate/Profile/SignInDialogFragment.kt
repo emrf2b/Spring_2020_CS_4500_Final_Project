@@ -23,7 +23,7 @@ class SignInDialogFragment: DialogFragment()
                 intent.putExtra("uName", userName?.text.toString())
                 intent.putExtra("pWord", passWord?.text.toString())
 
-                intent.putExtra("signIn", 1)
+                intent.putExtra("signIn", "1")
 
                 targetFragment?.onActivityResult(targetRequestCode, Activity.RESULT_OK, intent)
             }
